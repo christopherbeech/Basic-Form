@@ -1,0 +1,31 @@
+<div id="wrapper" class="container">
+
+    <form #form="ngForm" ngNativeValidate class="rounded-lg bg-light p-5">
+        <h3 class="text-secondary">User Form</h3>
+
+        <div class="form-group">
+            <label for="username" class="text-muted">Username</label>
+            <input id="username" type="text" class="form-control" name="username" required [(ngModel)]="userSettings.username" #nameField="ngModel" minlength="5">
+            <div [hidden]="nameField.valid || nameField.untouched" class="alert alert-danger">
+                Enter a Username
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="text-muted">Password</label>
+            <input id="password" type="password" class="form-control" name="password" required [(ngModel)]="userSettings.password" #passwordField="ngModel" minlength="8" max="8">
+            <div [hidden]="passwordField.valid || passwordField.untouched" class="alert alert-danger">
+                Enter a Password
+            </div>
+        </div>
+
+        <div class="form-group form-check">
+            <input id="keepInfo" type="checkbox" class="form-check-input">
+            <label for="keepInfo" class="form-check-label text-muted">Remember Me</label>
+        </div>
+
+        <button class="btn btn-danger">Sign Up</button>
+
+    </form>
+
+</div>
